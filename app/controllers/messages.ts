@@ -7,9 +7,9 @@ import { session, sessionRequest } from '../services/session'
 
 import { ObjectID } from 'mongodb';
 
-import { Message, isMessage } from 'shared/models/message';
-import { Ride } from 'shared/models/ride';
-import { Link } from 'shared/models/link';
+import { Message, isMessage } from 'openride-shared';
+import { Ride } from 'openride-shared';
+import { Link } from 'openride-shared';
 
 let rideOK = cat.before((request: sessionRequest) => {
 

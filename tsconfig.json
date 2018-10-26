@@ -4,19 +4,18 @@
     "target": "ES5",
     "sourceMap": true,
     "module": "commonjs",
-    "baseUrl": ".",
+    "baseUrl": "app",
     "removeComments": false,
     "noImplicitReturns": true,
 		"lib": ["es5","es2015.promise","dom", "scripthost"],
-    "paths": 
-      {"shared/*": ["../shared/*"]},
     "noImplicitAny": true,
     "preserveConstEnums": true,
     "types": ["node", "restify", "chai", "chai-http", "chai-as-promised", "turf"],
-		"rootDirs": [ "../shared", "app" ],
+	"rootDirs": [ "app" ],
     "outDir": "built",
-		"experimentalDecorators": true
+	"experimentalDecorators": true
   },
+  "include": [ "app/"],
   "exclude": [
     "logs",
     "node_modules"

@@ -3,25 +3,22 @@ import * as restify from 'restify';
 
 import * as cat from 'catnapify';
 
+import * as hash from 'object-hash';
+
 import { Promise } from 'es6-promise'
 
-import { Link } from 'shared/models/link';
-import { User, Signature, Credentials } from 'shared/models/user';
+import { Link } from 'openride-shared';
+import { User, Signature, Credentials } from 'openride-shared';
 
 import { db } from '../services/db';
 import { logger } from '../services/logger';
 import { settings } from '../config/config';
 
-import { hash } from 'shared/lib/hash';
-
 export const salt = '5ce5be34c720d80d9d0075bccb47e7e56db9d36c';
-
 
 export const keyName = `${ settings.name }-session`
 
 let redis_client = redis.createClient()
-
-//export interface cat.Request{ user : User };
 
 export interface sessionRequest extends cat.Request {
 
@@ -32,8 +29,6 @@ export interface sessionRequest extends cat.Request {
 
 
 export namespace session {
-
-	// export let loggedInUser: Link = { '@id': '/api/users/Louise' }	
 
 	/*
 	 *

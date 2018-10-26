@@ -1,6 +1,6 @@
 {
   "name": "openride-server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "OpenRide server",
   "main": "built/server/app/app.js",
   "scripts": {
@@ -17,6 +17,7 @@
   "author": "Loïc Coenen",
   "license": "MIT",
   "dependencies": {
+    "@types/object-hash": "^1.2.0",
     "app-module-path": "^2.2.0",
     "assert-plus": "^1.0.0",
     "balanced-match": "^1.0.0",
@@ -31,6 +32,8 @@
     "module-alias": "^2.0.6",
     "moment": "^2.22.2",
     "mongodb": "^3.1.3",
+    "object-hash": "^1.3.0",
+    "openride-shared": "^0.1.4",
     "redis": "^2.8.0",
     "restify": "^4.1.1",
     "restify-cors-middleware": "^1.1.1",
@@ -68,27 +71,22 @@
     "methods": "^1.1.2",
     "mime-db": "^1.36.0",
     "mime-types": "^2.1.20",
-    "mocha": "^5.2.0",
+    "mocha": "^3.5.3",
     "ms": "^2.1.1",
     "path-is-absolute": "^1.0.1",
     "qs": "^6.5.2",
     "superagent": "^4.0.0-beta.5",
-    "mocha": "^3.5.3",
     "mongod": "^2.0.0",
     "ts-node": "^5.0.1",
     "tslint": "^3.15.1",
     "type-detect": "^4.0.8",
     "typescript": "^2.9.2"
   },
-  "_moduleAliases": {
-    "shared": "../shared"
-  },
   "nodemonConfig": {
     "watch": [
-      "app",
-      "../shared/*"
+      "app"
     ],
     "ext": "ts",
-    "exec": "npm run refresh"
+    "exec": "make start"
   }
 }

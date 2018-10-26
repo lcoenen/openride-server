@@ -9,9 +9,9 @@ import { logger, logged } from '../services/logger';
 import { db } from '../services/db';
 import { session, sessionRequest } from '../services/session';
 
-import { Ride, RideType, isRide } from 'shared/models/ride';
-import { Link, idLink } from 'shared/models/link';
-import { Prospect, ProspectType } from 'shared/models/prospect';
+import { Ride, RideType, isRide } from 'openride-shared';
+import { Link, idLink } from 'openride-shared';
+import { Prospect, ProspectType } from 'openride-shared';
 
 const maxDistance: number = 30;
 
@@ -80,7 +80,7 @@ export class ridesController extends cat.Controller {
 	 * This route allow to publish a new ride.
 	 *
 	 * In order to do that, the user have to POST a new ride
-	 * The request have to contains all the field needed for a ride (see shared/models/ride)
+	 * The request have to contains all the field needed for a ride (see openride-shared/models/ride)
 	 *
 	 */
 	@cat.catnapify('post', '/api/rides')

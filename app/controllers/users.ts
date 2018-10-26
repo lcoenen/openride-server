@@ -10,11 +10,11 @@ import { Promise } from 'es6-promise';
 
 import { User, Signature, Credentials, 
 	isCredentials, isUser, sanitize,
-	SignupResponse } from 'shared/models/user';
-import { Ride } from 'shared/models/ride';
-import { Link } from 'shared/models/link';
+	SignupResponse } from 'openride-shared';
+import { Ride } from 'openride-shared';
+import { Link } from 'openride-shared';
 
-import { hash } from 'shared/lib/hash';
+import { hash } from 'openride-shared';
 
 interface userRequest extends cat.Request{
 
