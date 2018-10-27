@@ -18,7 +18,7 @@ export const salt = '5ce5be34c720d80d9d0075bccb47e7e56db9d36c';
 
 export const keyName = `${ settings.name }-session`
 
-let redis_client = redis.createClient()
+let redis_client = redis.createClient(settings.redisOptions)
 
 export interface sessionRequest extends cat.Request {
 

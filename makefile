@@ -5,11 +5,12 @@ ENTRY_POINT = built/app.js
 MOCHA = mocha
 TEST_BUILT = built/server/test/
 WAIT = ../shared/bin/wait
+DOCKER_IMAGE = chatnoirdigitalcoop/openride-server
 
 TS_FILES = $(shell find app/ -type f -name '*.ts') 
 #
 # Phonies target
-.PHONY: start compile watch
+.PHONY: start compile watch install
 
 # Generate the main entrypoint
 $(ENTRY_POINT): $(TS_FILES) 
@@ -38,4 +39,13 @@ watch-test:
 	nodemon -w test -w app --exec "make test" -e ts
 
 clean: 
+	@echo "Cleaning the built directory"
 	rm built -fr
+
+install: 
+	@echo "Installing npm modules"
+	npm i
+
+docker:
+	@echo "Running the docker image"
+	docker run -p 3000:3000 -d $(DOCKER_IMAGE)

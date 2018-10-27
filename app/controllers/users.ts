@@ -14,7 +14,7 @@ import { User, Signature, Credentials,
 import { Ride } from 'openride-shared';
 import { Link } from 'openride-shared';
 
-import { hash } from 'openride-shared';
+import * as hash from 'object-hash';
 
 interface userRequest extends cat.Request{
 
