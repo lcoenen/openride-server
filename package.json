@@ -1,6 +1,6 @@
 {
   "name": "openride-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenRide server",
   "main": "built/server/app/app.js",
   "scripts": {
