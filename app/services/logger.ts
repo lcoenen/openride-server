@@ -21,12 +21,12 @@ export let logger = bunyan.createLogger({
     },
     {
       level: 'error',
-      path: `error.log`
-		},
-		{
-			level: 'trace',
-			path: 'debug.log'
-		}
+      path: `logs/error.log`
+    },
+    {
+      level: 'trace',
+      path: 'logs/debug.log'
+    }
   ]
 });
 

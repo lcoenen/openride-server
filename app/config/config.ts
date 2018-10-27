@@ -4,7 +4,7 @@ const MONGO_HOST = process.env.MONGO_HOST || '192.168.0.1';
 const MONGO_PORT = process.env.MONGO_HOST || 27017;
  
 const REDIS_HOST = process.env.REDIS_HOST || '192.168.0.1';
-const REDIS_PORT = process.env.REDIS_HOST || 6379;
+const REDIS_PORT = parseInt(process.env.REDIS_HOST) || 6379;
 
 export let settings = {
   name: 'openride-server',
