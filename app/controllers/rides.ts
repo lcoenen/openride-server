@@ -414,9 +414,6 @@ export class ridesController extends cat.Controller {
 			if(idLink(<Link>ride.driver) != request.user._id)
 				throw { code: 403, response: { message: 'This is not your ride, sorry' }}
 
-			if(ride.confirmed)
-				throw { code: 403, response: { message: 'This ride have already been confirmed. Too late to cancel it.'}}
-
 		}).then(() => {
 
 			return db
