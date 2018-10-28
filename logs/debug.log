@@ -1,0 +1,2 @@
+{"name":"openride","hostname":"Radia","pid":25358,"level":30,"msg":"INFO: openride-server is connected to database mongodb://192.168.0.1:27017","time":"2018-10-28T15:01:32.979Z","v":0}
+{"name":"openride","hostname":"Radia","pid":25358,"level":30,"msg":"INFO: Server is listening on port 3000","time":"2018-10-28T15:01:33.062Z","v":0}

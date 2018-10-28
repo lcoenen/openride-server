@@ -48,4 +48,4 @@ install:
 
 docker:
 	@echo "Running the docker image"
-	docker run -p 3000:3000 -d $(DOCKER_IMAGE)
+	docker run -v /usr/src/openride/logs:/var/log/openride -p 3000:3000 -d $(DOCKER_IMAGE)
