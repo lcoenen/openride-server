@@ -1,0 +1,33 @@
+version: "3"
+services: 
+    openride-api:
+        build: .
+        environment: 
+            - REDIS_HOST=redis
+            - MONGO_HOST=db
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./logs:/src/logs
+        depends_on:
+            - "db"
+            - "redis"
+        networks:
+            -  nginx-proxy
+            -  back
+    db:
+        image: mongo
+        volumes:
+            - ~/mongo:/data/db
+        networks:
+            - back
+    redis:
+        networks:
+            - back
+        image: redis
+
+networks:
+     nginx-proxy:
+         external:
+             name: nginx_nginx-proxy
+     back:
