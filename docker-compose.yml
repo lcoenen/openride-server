@@ -29,5 +29,5 @@ services:
 networks:
      nginx-proxy:
          external:
-             name: nginx_nginx-proxy
+             name: radia-map_nginx-proxy
      back:
