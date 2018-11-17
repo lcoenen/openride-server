@@ -18,7 +18,7 @@ export const salt = '5ce5be34c720d80d9d0075bccb47e7e56db9d36c';
 
 export const keyName = `${ settings.name }-session`
 
-let redis_client = redis.createClient(settings.redisOptions)
+let redis_client : any;
 
 export interface sessionRequest extends cat.Request {
 
@@ -30,6 +30,32 @@ export interface sessionRequest extends cat.Request {
 
 export namespace session {
 
+
+	/*
+	 *
+	 *	This will attempt to initialise the Redis server
+	 *
+	 */
+	export function init() {
+
+		return new Promise((resolve, reject) => {
+		
+		 	redis_client = redis.createClient(settings.redisOptions)	
+			redis_client.on('error', (err: any) => {
+			
+				reject(err)	
+			
+			})	
+
+			redis_client.on('connect', ( ) => {
+
+			  resolve();  
+
+			})
+		
+		})
+	
+	}
 	/*
 	 *
 	 * Return a token that have to be sent to the client.
