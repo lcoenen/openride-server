@@ -15,10 +15,24 @@ export namespace db {
     return MongoClient
 			.connect(settings.mongoUrl, { useNewUrlParser: true })
       .then((client:MongoClient) => {
-     
+
+
         logger.info(`INFO: ${settings.name} is connected to database ${settings.mongoUrl}`);
         connection = client;
-	db = client.db(settings.dbName);
+
+				db = client.db(settings.dbName);
+
+    			/*
+					 * 			 
+					 * 		This will create the geographical indexes needed to do a 
+					 * 		proximity research.
+					 * 	
+					 * 		See https://docs.mongodb.com/manual/core/2dsphere/
+					 * 	
+					 *
+					 */
+				db.collection('rides').createIndex( { 'destination.geometry'  : "2dsphere" } );
+				db.collection('rides').createIndex( { 'origin.geometry'  : "2dsphere" } );
         return client;
 
     });
